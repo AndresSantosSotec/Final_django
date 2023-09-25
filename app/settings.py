@@ -81,9 +81,13 @@ DATABASES = {
         'HOST': 'localhost',
         'USER': 'debs',
         'PASSWORD': '123456',
-        'PORT': 5432
+        'PORT': 5432,
+        'OPTIONS': {
+            'options': '-c TIMEZONE=UTC',
+        },
     }
 }
+
 
 
 
@@ -118,7 +122,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -127,3 +131,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS =(os.path.join(BASE_DIR, 'static'),)
+
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/login/'
